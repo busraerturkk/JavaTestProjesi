@@ -7,28 +7,34 @@ public class Demo {
 	public static void main(String[] args) {
 		Demo demo = new Demo();
 		
-		while(true){
-			int a,b;
-			Scanner s = new Scanner( System.in );
-			System.out.println("1.Sayi:");
-			a = Integer.parseInt( s.nextLine() );
-			System.out.println("2.Sayi:");
-			b = Integer.parseInt( s.nextLine() );
-			
-			System.out.println("Topla: " + demo.Topla(a,b) );
-			System.out.println("Cikar: " + demo.Cikar(a,b) );
-			System.out.println("Çarp : " + demo.Carp(a,b) );
-			
-			try{
-				System.out.println("Böl  : " + demo.Bol(a,b));
+		try{
+			while(true){
+				int a,b;
+				Scanner s = new Scanner( System.in );
+				System.out.println("1.Sayi:");
+				a = Integer.parseInt( s.nextLine() );
+				System.out.println("2.Sayi:");
+				b = Integer.parseInt( s.nextLine() );
+				
+				System.out.println("Topla: " + demo.Topla(a,b) );
+				System.out.println("Cikar: " + demo.Cikar(a,b) );
+				System.out.println("Çarp : " + demo.Carp(a,b) );
+				
+				try{
+					System.out.println("Böl  : " + demo.Bol(a,b));
+				}
+				catch(ArithmeticException e){
+					System.out.println("!!! Bölen 0 girlemez !!!");
+				}
+				
+				System.out.println("-------------------------");
+				
 			}
-			catch(ArithmeticException e){
-				System.out.println("!!! Bölen 0 girlemez !!!");
-			}
-			
-			System.out.println("-------------------------");
-			
+		}catch
+		(Exception ex){
+			System.out.println("Sayi yerine Harf girdiginizden dolayi program kapandi.");
 		}
+		
 		
 	}
 	
