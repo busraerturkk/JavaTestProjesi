@@ -24,14 +24,26 @@ public class Demo {
 					System.out.println("Böl  : " + demo.Bol(a,b));
 				}
 				catch(ArithmeticException e){
-					System.out.println("!!! Bölen 0 girlemez !!!");
+					System.out.println(e.getMessage());
+				}
+				try{
+					System.out.println("Mod  : " + demo.Mod(a,b));
+				}
+				catch(ArithmeticException e){
+					System.out.println(e.getMessage());
+				}
+				try{
+					System.out.println("Sqrt : " + demo.Karekok(a));
+				}
+				catch(ArithmeticException e){
+					System.out.println(e.getMessage());
 				}
 				
 				System.out.println("-------------------------");
 				
 			}
 		}catch
-		(Exception ex){
+		(NumberFormatException ex){
 			System.out.println("Sayi yerine Harf girdiginizden dolayi program kapandi.");
 		}
 		
@@ -52,6 +64,9 @@ public class Demo {
 		return a-b;
 	}
 	
+	/*
+	 * 
+	 */
 	int Carp(int a ,int b){
 		if(a== Integer.MAX_VALUE || b==Integer.MAX_VALUE)
 			throw new ArithmeticException("integer max degerinden fazla");
@@ -59,10 +74,22 @@ public class Demo {
 		return a*b;
 	}
 	
-	int Bol(float a,float b){
+	float Bol(float a,float b){
 		if(b ==0)
 			throw new ArithmeticException("bölen 0 olamaz");
 		
-		return (int)(a/b);
+		return (a/b);
+	}
+	int Mod(int a,int b){
+		if(b ==0)
+			throw new ArithmeticException("mod 0 olamaz");
+		
+		return (int)(a%b);
+	}
+	float Karekok(float a){
+		if(a<0)
+			throw new ArithmeticException("karekök içi negatif deðer olamaz");
+		
+		return (float) (Math.sqrt(a));
 	}
 }
